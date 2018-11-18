@@ -204,8 +204,8 @@ export const registerOctoprintInstance = functions.https.onRequest(async (reques
         if (!isInstanceExists) {
             user.instances.push(request.body.local_address);
             await db.collection('accounts').doc(uid).set(user);
-            response.send("OK");
         }
+        response.send("OK");
     } catch (error) {
         response.status(400).send("User unknown");
         return;
